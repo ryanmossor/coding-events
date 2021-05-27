@@ -24,6 +24,7 @@ public class EventController {
         events.add("Apple WWDC");
         events.add("SpringOne Platform");
         model.addAttribute("events", events); */
+
         model.addAttribute("events", events);
         return "events/index";
     }
