@@ -8,13 +8,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 @Controller
 @RequestMapping("events")
 public class EventController {
-
-    private static List<String> events = new ArrayList<>();
 
     @GetMapping
     public String displayAllEvents(Model model) {
@@ -25,6 +24,11 @@ public class EventController {
         events.add("SpringOne Platform");
         model.addAttribute("events", events); */
 
+        HashMap<String, String> events = new HashMap<>();
+        events.put("WWDC", "an information technology conference held annually by Apple Inc.");
+        events.put("Google I/O", "an annual developer conference held by Google in Mountain View, California");
+        events.put("DockerCon", "a free, one day virtual event for development teams who are building the next " +
+                "generation of modern applications");
         model.addAttribute("events", events);
         return "events/index";
     }
@@ -39,7 +43,7 @@ public class EventController {
     // as above since these two methods handle different types of requests
     @PostMapping("create")
     public String createEvent(@RequestParam String eventName) {
-        events.add(eventName);
+//        events.add(eventName);
         return "redirect:";     // redirect to the root path for this controller
     }
 
