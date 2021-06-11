@@ -71,7 +71,7 @@ public class EventController {
         return "events/edit";
     }
 
-    @PostMapping("edit/{eventId}")
+    @PostMapping("edit")
     public String processEditForm(int eventId, String name, String description) {
         Event selectedEvent = EventData.getById(eventId);
         selectedEvent.setName(name);
